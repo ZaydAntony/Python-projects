@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Rent due",
+        "description": "Dear tenants the rent  is due on 5th March 2026 kindly pay attention to the notice",
+        "date": "05:03:26"
+    },
+    {
+        "title": "Water shutdown",
+        "description": "Dear tenants we will be experiencing water shutdown this weekend for scheduled maintenance",
+        "date": "28:02:26"
+    }
+]

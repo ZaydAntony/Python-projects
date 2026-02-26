@@ -1,5 +1,3 @@
-import random
-
 score = 0
 valid_choices = ("A", "B", "C", "D")
 
@@ -31,48 +29,41 @@ questions_set =[
     }
 ]
 
+def startGame():
+    print("------------------TEST YOUR ISLAMIC KNOWLEDGE ☪🎊🎊🕋-------------")
+    print("------------------WELCOME--------------")
 
+
+
+
+def userguess():
+    while True:
+        user_guess = str(input("Please select the answer (A, B, C or D): ")).upper()
+        if user_guess == "":
+            print("Cannot be empty")
+        elif user_guess not in valid_choices:
+            print("Answer can only be A, B, C or D")
+        else:
+            return user_guess
 
 def displayqn():
-    print("---------------------------------------------------------------")
-    print("--------------------Test your Islamic Knowledge----------------")
     for question in questions_set:
+        global score
         print(question["Question"])
         for option in question["options"]:
             print(option)
-
-        while True:
-            user_guess = str(input("Please select your answer to proceed (A, B, C or D): ")).upper()
-            global valid_choices 
-            if user_guess == "":
-                print("Cannot be blank")
-            elif user_guess not in valid_choices:
-                print(" Choose answer as either (A, B, C or D)")
-            else:
-                break
-        
-        for answer in question["answer"]:
-            if user_guess == answer:
-                print("Correct ✅")
-                global score
-                score += 1
-
-            else:
-                print("Incorrect 💔")
-                print(f"The correct answer is: {answer}")
-    print("-------------------------🎊🎊🎊🎊🎊🎊🎊🎊-----------------------------------")
-    print(f"Your Final score  is: {score}/{len(questions_set)}")
-
-        
+        user_guess = userguess()
+        if user_guess == question["answer"]:
+            print("correct ✅")
+            score += 1
+        else:
+            print("incorrect 💔")
+            print(f"The correct answer is {question["answer"]}")
+    print("---------------🎊🎊🎊🎊😉🎊🎊---------")
+    print(f"Your final score is {score}/{len(questions_set)}")
     print()
+        
 
 
-
-
-
-
-    
-    
-
-
-print(displayqn())
+startGame()
+displayqn()
